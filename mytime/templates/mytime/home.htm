@@ -9,8 +9,14 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
 </head>
 <body>
-    <div class="container lead">
-            <h1>The time on the server is <span id="date">{{date}}</span></h1>
+    <div class="container lead d-flex align-items-center w-100 h-100 justify-content-center mt-5">
+        <div class="row  border rounded-circle p-4 border-danger bg-success text-light ">
+            <div class="col-sm-6 offset-sm-3">
+                    <h1 class="text-capitalize">time on server:
+                         <div id="date" class="text-muted">{{date}}</div>
+                    </h1>
+            </div>
+        </div>
     </div>
     
     <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
