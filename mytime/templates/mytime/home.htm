@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time On Server</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container lead">
+            <h1>The time on the server is <span id="date">{{date}}</span></h1>
+    </div>
+    
+    <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'css/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+        setInterval(function(){
+            $.getJSON('/time/', function(response){
+                console.log(new Date(response['date']));
+                $('#date').html(new Date(response['date']).toString().slice(0,25))
+            });
+        },1000);
+    </script>
+</body>
+</html>
